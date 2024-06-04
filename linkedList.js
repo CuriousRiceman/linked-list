@@ -99,6 +99,23 @@ class LinkedList {
         }
 
     }
+    remove(index) {
+        let tempHead = this.head;
+        let indexToMatch = 0;
+        let previousNode = null;
+        let followingNode = null;
+        while (index > indexToMatch) {
+            console.log(tempHead.value);
+            indexToMatch++;
+            previousNode = tempHead;
+            tempHead = tempHead.nextNode;
+            followingNode = tempHead.nextNode;
+        }
+        console.log();
+        console.log(previousNode.value);
+        console.log(tempHead.value + " Delete this value");
+        console.log(followingNode.value);
+    }
     toString() {
         let tempHead = this.head;
         while (tempHead !== null) {
@@ -114,16 +131,18 @@ linkedList.prepend(10);
 linkedList.append(6);
 linkedList.append(15);
 
-linkedList.getSize();
-linkedList.toString();
-console.log("\n------------------------------------------");
-linkedList.pop();
+// linkedList.getSize();
+linkedList.remove(2);
 linkedList.toString();
 
-console.log();
-console.log(linkedList.getHead());
-console.log(linkedList.getTail());
-console.log(linkedList.at(2));
-linkedList.contains(5);
-console.log(linkedList.find(6));
+// console.log("\n------------------------------------------");
+// linkedList.pop();
+// linkedList.toString();
+
+// console.log();
+// console.log(linkedList.getHead());
+// console.log(linkedList.getTail());
+// console.log(linkedList.at(2));
+// linkedList.contains(5);
+// console.log(linkedList.find(6));
 
