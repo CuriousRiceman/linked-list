@@ -99,22 +99,37 @@ class LinkedList {
         }
 
     }
-    remove(index) {
+    removeAt(index) {
         let tempHead = this.head;
         let indexToMatch = 0;
         let previousNode = null;
         let followingNode = null;
         while (index > indexToMatch) {
-            console.log(tempHead.value);
             indexToMatch++;
             previousNode = tempHead;
             tempHead = tempHead.nextNode;
             followingNode = tempHead.nextNode;
         }
-        console.log();
-        console.log(previousNode.value);
-        console.log(tempHead.value + " Delete this value");
-        console.log(followingNode.value);
+        previousNode.nextNode = followingNode;
+    }
+    insertAt(value, index) {
+        let tempHead = this.head;
+        let indexToMatch = 0;
+        let previousNode = null;
+        if (index !== 0) {
+            while (index > indexToMatch) {
+                indexToMatch++;
+                previousNode = tempHead;
+                tempHead = tempHead.nextNode;
+            }
+            let data = new LinkNode(value);
+            previousNode.nextNode = data;
+            data.nextNode = tempHead;
+        } else {
+            let data = new LinkNode(value);
+            data.nextNode = tempHead;
+            this.head = data;
+        }
     }
     toString() {
         let tempHead = this.head;
@@ -132,7 +147,8 @@ linkedList.append(6);
 linkedList.append(15);
 
 // linkedList.getSize();
-linkedList.remove(2);
+linkedList.removeAt(2);
+linkedList.insertAt(21, 1);
 linkedList.toString();
 
 // console.log("\n------------------------------------------");
